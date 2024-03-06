@@ -48,6 +48,58 @@ Este script demuestra cómo realizar y procesar una consulta básica en PostgreS
 - **Manejo de Excepciones y Cierre:** 
 - Captura errores durante la consulta para manejo de fallos.
 - Cierra el cursor y la conexión al finalizar para liberar recursos.
+----------------------
+
+# ETL_Workshop_01
+---
+
+# ETL Workshop: Workflow
+
+## Purpose of the Workshop
+This workshop is designed to simulate a real-life data processing scenario, providing participants with hands-on experience in implementing an ETL (Extract, Transform, Load) workflow. The goal is to equip aspiring data engineers with the necessary skills to handle, transform, and analyze data effectively, using tools and techniques that are essential in the Big Data industry.
+
+## Project Objectives
+- To familiarize participants with the process of importing and manipulating data using Python and Pandas.
+- To develop skills in creating and managing databases using SQL.
+- To provide practical experience in connecting and manipulating data through command-line interfaces.
+- To analyze and extract valuable insights from real or simulated datasets.
+- To prepare participants for common challenges in data engineering and data science roles.
+
+## Process Stages
+
+### Key Concepts
+- **Cursor:** In databases, a cursor is a structure that allows traversal and manipulation of the rows returned by SQL queries sequentially. It is essential for detailed operations on data.
+- **Connection:** Represents a session between an application program and a database. It is the channel through which the program sends queries and receives results from the database, established with specific connection parameters.
+
+### Importing Data from CSV to PostgreSQL with Python
+- This script is a step-by-step guide to importing data from a CSV file into a table in a PostgreSQL database. The operation is performed in several key stages, ensuring an efficient and organized data transfer.
+
+- **Initial Preparations**
+  - **Initial Preparations:** The process begins with reading connection parameters from a db_config.ini file using configparser. This includes information such as the database name, user, password, host, and port.
+  - **Connecting to the Database:** With these parameters, a connection to the PostgreSQL database is established, and a cursor is created. This cursor will be essential for executing SQL commands later on.
+
+- **Data Importation**
+  - **Opening the CSV File:** The script locates and opens the specified CSV file in csv_file_path. It is important to adjust the path to the current environment and ensure that the delimiter in csv.reader matches that of the file.
+  - **Reading and Inserting Data:**
+    - The first line of the CSV (usually the header) is skipped to avoid inserting it as a record in the database.
+    - Each row from the CSV file is read and inserted into the candidates table in the database using an SQL INSERT statement. Each row's value is passed as a parameter to the query, corresponding to the table columns.
+
+- **Finalization and Cleanup**
+  - **Persistence and Closure:** 
+    - A commit is executed to make the changes permanent in the database.
+    - The cursor and connection are closed to release resources and ensure the integrity of the session with the database.
+
+### Quick Query in PostgreSQL with Python
+This script demonstrates how to perform and process a basic query in PostgreSQL, extracting and displaying the first 30 records from the candidates table.
+
+- **Key Steps**
+  - **Setup:** Reads connection details from db_config.ini using configparser and establishes a connection to the PostgreSQL database with psycopg2.
+  - **Query and Results:** 
+    - Executes SELECT * FROM candidates LIMIT 30 to obtain the first 30 records.
+    - Retrieves and displays the column names followed by each record, separating values with | for clear visualization.
+  - **Exception Handling and Closure:** 
+    - Captures errors during the query for failure management.
+    - Closes the cursor and connection at the end to release resources.
 
 ## Imagen Descriptiva del Proyecto
 ![ETL Workshop](https://media.licdn.com/dms/image/D4E22AQFzbHItrCQxSA/feedshare-shrink_800/0/1707950378509?e=1711584000&v=beta&t=p4_P3i7UuPEdx_lBHWLHWsaHKEMaO-cj5xlmZ2S5Hys)
